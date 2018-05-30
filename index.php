@@ -66,6 +66,16 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "เช็คพิกัดGoogleMaps , แผนที่มิราจ , Website ";
+}else if($arrJson['events'][0]['message']['text'] == "แผนที่มิราจ"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['image'] = "http://www.miragecaraudio.com/photos/1/news%20&%20activity/mirage%20expo18/New_Maps.jpg";
+}else if($arrJson['events'][0]['message']['text'] == "เช็คพิกัดGoogleMaps"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "พิกัดนี่เลย!! https://goo.gl/maps/qYsHLdwCfht";
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
