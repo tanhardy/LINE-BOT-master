@@ -70,12 +70,17 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "image";
-  $arrPostData['messages'][0]['image'] = "http://www.miragecaraudio.com/photos/1/news%20&%20activity/mirage%20expo18/New_Maps.jpg";
+  $arrPostData['messages'][0]['text'] = "http://www.miragecaraudio.com/photos/1/news%20&%20activity/mirage%20expo18/New_Maps.jpg";
 }else if($arrJson['events'][0]['message']['text'] == "เช็คพิกัดGoogleMaps"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "พิกัดนี่เลย!! https://goo.gl/maps/qYsHLdwCfht";
+}else if($arrJson['events'][0]['message']['text'] == "Website"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "เว็บไซต์ของเราอยู่ที่นี้เลย >>> WWW.MIRAGECARAUDIO.COM <<<";
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
