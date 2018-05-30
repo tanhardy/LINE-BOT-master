@@ -10,48 +10,6 @@ $strUrl = "https://api.line.me/v2/bot/message/reply";
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
-if (strpos($_msg, 'สอนเป็ด') !== false) {
-  if (strpos($_msg, 'สอนเป็ด') !== false) {
-    $x_tra = str_replace("สอนเป็ด","", $_msg);
-    $pieces = explode("|", $x_tra);
-    $_question=str_replace("[","",$pieces[0]);
-    $_answer=str_replace("]","",$pieces[1]);
-    //Post New Data
-    $newData = json_encode(
-      array(
-        'question' => $_question,
-        'answer'=> $_answer
-      )
-    );
-    $opts = array(
-      'http' => array(
-          'method' => "POST",
-          'header' => "Content-type: application/json",
-          'content' => $newData
-       )
-    );
-    $context = stream_context_create($opts);
-    $returnValue = file_get_contents($url,false,$context);
-    $arrPostData = array();
-    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-    $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = 'ขอบคุณที่สอนเป็ด';
-  }
-}else{
-  if($isData >0){
-   foreach($data as $rec){
-    $arrPostData = array();
-    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-    $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = $rec->answer;
-   }
-  }else{
-    $arrPostData = array();
-    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-    $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = 'ก๊าบบ คุณสามารถสอนให้ฉลาดได้เพียงพิมพ์: สอนเป็ด[คำถาม|คำตอบ]';
-  }
-}
 
 if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
@@ -68,11 +26,46 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "โปรดเลือกคำสั่ง 1.STOCK 2.ราคาขาย 3.โปรโมชั่น 4.อื่นๆ";
-  }else if($arrJson['events'][0]['message']['text'] == "OKay"){
+}else if($arrJson['events'][0]['message']['text'] == "OKay"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ขอบคุณที่ใช้บริการงับ";
+}else if($arrJson['events'][0]['message']['text'] == "ราคาขาย"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "โปรดเลือกยี่ห้อ ดังนี้ 1.SalePioneer 2.SaleMercury 3.SaleKenwood 4.SaleGroudZero 5.SaleTop-Palace 6.SaleGenesis 7.Saleเพิ่มเติม";
+}else if($arrJson['events'][0]['message']['text'] == "Saleเพิ่มเติม"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "โปรดเลือกยี่ห้อ ดังนี้ 8.SaleAndroid 9.SaleAudison 10.SaleFocal 11.SaleFlux 12.Saleกล้องบันทึก";
+}else if($arrJson['events'][0]['message']['text'] == "SalePioneer"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "โปรดเลือกรุ่นดังนี้ AVH-Z9150BT , AVH-Z5150BT , AVH-A205BT , AVH-A105DVD , AVH-Z7050BT หรือรุ่นอื่นๆเป็นต้น";
+}else if($arrJson['events'][0]['message']['text'] == "STOCK"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "โปรดเลือกยี่ห้อ ดังนี้ 1.STPioneer 2.STMercury 3.STKenwood 4.STGroudZero 5.STTop-Palace 6.STGenesis 7.STเพิ่มเติม";
+}else if($arrJson['events'][0]['message']['text'] == "STเพิ่มเติม"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "โปรดเลือกยี่ห้อ ดังนี้ 8.STAndroid 9.STAudison 10.STFocal 11.STFlux 12.STกล้องบันทึก";
+}else if($arrJson['events'][0]['message']['text'] == "โปรโมชั่น"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "สามารถตรวจทางหน้าเว็บได้ที่ ลิงค์ http://www.miragecaraudio.com/promotion";
+}else if($arrJson['events'][0]['message']['text'] == "อื่นๆ"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "เช็คพิกัดGoogleMaps , แผนที่มิราจ , Website ";
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
