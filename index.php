@@ -25,8 +25,8 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "อยู่ระหว่างการพัฒนาจ้า";
-  }else if($arrJson['events'][0]['message']['text'] == "OKay""OK"){
+  $arrPostData['messages'][0]['text'] = "โปรดเลือกคำสั่ง 1.STOCK 2.ราคาขาย 3.โปรโมชั่น 4.อื่นๆ";
+  }else if($arrJson['events'][0]['message']['text'] == "OKay"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
