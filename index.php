@@ -1,6 +1,6 @@
 <?php
 
-$strAccessToken = "VDN31vkiBVls99jAkQBu+F+ttFpkl/vQeyjiBhbsqkNllANzCLKiGfGBmJi0pw/E/UVT0Jav5KjEeQqkHfcgR4oNTbvTU513/p3Mnh4kXQaGZ2BbL4ciQco+y+hjQyTYHbVmYnTUife6lQdKFbFaYAdB04t89/1O/w1cDnyilFU";
+$strAccessToken = "YAUg5wm0qQbIA3a9LwA4XntIf9i22QRy9v296uj+fjqA6nFPBo8Hrxs34vT/fzd640sMUNVyDoMB1QN+708xZOyfVsFjHH3H5dqG87PenA9iKT64JNnm+n3HT0frX0VT5G79cmHoyP4d/vKq9f60PQdB04t89/1O/w1cDnyilFU=";
 
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
@@ -20,22 +20,22 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ชื่อน้อง MT";
+  $arrPostData['messages'][0]['text'] = "น้อมิราจจ้า";
 }else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "อยู่ระหว่างการพัฒนา";
-  }else if($arrJson['events'][0]['message']['text'] == "เพิ่มผู้ใช้งาน 01"){
+  $arrPostData['messages'][0]['text'] = "อยู่ระหว่างการพัฒนาจ้า";
+  }else if($arrJson['events'][0]['message']['text'] == "OKay,OK"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "เพิ่มผู้ใช้งาน 01 เรียบร้อยแล้ว จ๊ะ";
+  $arrPostData['messages'][0]['text'] = "ขอบคุณที่ใช้บริการงับ";
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
+  $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีคำสั่งนี้ในระบบ";
 }
 
 
