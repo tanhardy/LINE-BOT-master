@@ -25,7 +25,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "โปรดเลือกคำสั่ง 1.STOCK 2.ราคาขาย 3.โปรโมชั่น 4.อื่นๆ";
+  $arrPostData['messages'][0]['text'] = "ผมทำอะไรได้หลายอย่าง รองพิมพ์ > คำสั่ง < ดูซิ++ ";
 }else if($arrJson['events'][0]['message']['text'] == "OKay"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
@@ -81,6 +81,36 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "เว็บไซต์ของเราอยู่ที่นี้เลย >>> WWW.MIRAGECARAUDIO.COM <<<";
+}else if($arrJson['events'][0]['message']['text'] == "ดีจ้า"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "ดีจ้า มีอะไรให้ Bot_Mirage รับใช้ครับผม ^ ^ โปรดพิมพ์ เพื่อดูรายละเอียด > คำสั่ง < ";
+}else if($arrJson['events'][0]['message']['text'] == "คำสั่ง"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "โปรดเลือกคำสั่ง 1.STOCK 2.ราคาขาย 3.โปรโมชั่น 4.อื่นๆ";
+}else if($arrJson['events'][0]['message']['text'] == "STPioneer"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "SERVER DOWN . Please Waiting for Connect";
+}else if($arrJson['events'][0]['message']['text'] == "STMercury"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "SERVER DOWN . Please Waiting for Connect";
+}else if($arrJson['events'][0]['message']['text'] == "STKenwood"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "SERVER DOWN . Please Waiting for Connect";
+}else if($arrJson['events'][0]['message']['text'] == "STGroundzero"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "SERVER DOWN . Please Waiting for Connect";
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
