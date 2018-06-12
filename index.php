@@ -117,21 +117,6 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีคำสั่งนี้ในระบบ รอการปรับปรุงจ้า";
 }
-$foundInCells = array();
-$searchValue = 'https://docs.google.com/spreadsheets/d/1V83DJXCXiCNIgRowciuLdmnXeBd-XUu3hPRzBHWnNCM/edit#gid=0';
-foreach ($objPHPExcel->getWorksheetIterator() as $worksheet) {
-    $ws = $worksheet->getTitle();
-    foreach ($worksheet->getRowIterator() as $row) {
-        $cellIterator = $row->getCellIterator();
-        $cellIterator->setIterateOnlyExistingCells(true);
-        foreach ($cellIterator as $cell) {
-            if ($cell->getValue() == $searchValue) {
-                $foundInCells[] = $ws . '!' . $cell->getCoordinate();
-            }
-        }
-    }
-}
-var_dump($foundInCells);
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);
